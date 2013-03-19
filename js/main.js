@@ -14,13 +14,11 @@ Whereigo.config = {};
 // default points to production
 Whereigo.config = new (function () {
     var _apiBaseUrl = window.currentEnvironment;
-    var _deployementName = "RestaurantSearch";
-    var _blueprintName = "166";
-    var _apikey="+MmuqVgHVYH7Q+5imsGc4497fiuBAbBeCGYRkiQSCfY=";
+    var _deployementName = "restaurantsearch2";
+    var _apikey="ASpQ6scJZUKShAEoAk1fOA==";
 
     this.apiBaseUrl = _apiBaseUrl;
     this.deployment = _deployementName;
-    this.blueprintName = _blueprintName;
     this.apikey = _apikey;
 })();
 
@@ -94,8 +92,3 @@ var GeoLocator = {
         longitude: 73.95021849999999
     }
 };
-
-navigator.geolocation.getCurrentPosition(function(pos){
-    GeoLocator.Geocode(pos.coords.latitude,pos.coords.longitude);
-    GeoLocator.isUserLocationAvailable=true;
-});

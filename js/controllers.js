@@ -6,12 +6,13 @@ if (!Whereigo.controllers) Whereigo.controllers = {};
 
 Whereigo.controllers.applicationController = new (function () {
     this.createSession = function () {
-        Appacitive.session.environment='live';
+        Appacitive.session.environment='sandbox';
         _setAPIBaseUrl();
         var _sessionOptions = { "apikey": Whereigo.config.apikey, app: 'sdk' }
         Appacitive.session.create(_sessionOptions);
         Appacitive.eventManager.subscribe('session.success', function () {
             Appacitive.eventManager.fire('showMap');
+            Appacitive.eventManager.fire('showDetails');  
         });
     };
 
@@ -43,7 +44,7 @@ Whereigo.controllers.loginController = new (function () {
         if(FB) {
             Facebook.checkLogin(function(response){
                 if (response.status === 'connected') {
-                    Appacitive.facebook.accessToken = response.accessToken;
+                    Appacitive.facebook.accessToken = response.authResponse.accessToken;
                     Appacitive.Users.signupWithFacebook(function(){
                         $(".fb_button_text").text("Logout " + arguments[0].user.firstname + arguments[0].user.lastname);
                         Appacitive.session.setUserAuthHeader(arguments[0].token);

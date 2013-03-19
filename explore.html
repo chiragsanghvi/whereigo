@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+		 <meta http-equiv="Content-Language" content="en" />
         <title>Where I Go</title> 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript"></script>
@@ -12,8 +13,6 @@
         <script type="text/javascript" src="js/controllers.js"></script>
         <script type="text/javascript" src="js/explore.js"></script>
         <script type="text/javascript" src="js/facebook.js"></script>
-
-        <!--<script type="text/javascript" src="js/explore.js"></script>-->
 		<link type="text/css" rel="stylesheet"  href="styles/style.css"></link>
 	</head>
 	<body style="margin:auto;">
@@ -80,7 +79,7 @@
 			</div>
 		</script>
 		<script type="text/template" id="categoryListTemplate">
-			<div style="text-align: left;color: black;font-size: 20px;margin: 15px 10px;position: relative;width: 120px;">Categories</div>
+			<div style="text-align: left;color: white;font-size: 20px;margin: 15px 10px;position: relative;width: 120px;">Categories</div>
 			{{#filters}}
 			<div class="map-geocoder {{^notActive}}active{{/notActive}}" style="">
 				<a class="geocode icon-{{value}}"></a>

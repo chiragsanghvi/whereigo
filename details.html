@@ -1,0 +1,282 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+		 <meta http-equiv="Content-Language" content="en" />
+        <title>Where I Go : details</title> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" type="text/javascript"></script>
+        <script type="text/javascript" src="js/underscore.js"></script>
+        <script type="text/javascript" src="js/mustache.js"></script>
+        <script type="text/javascript" src="js/appacitiveSdk.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/controllers.js"></script>
+        <script type="text/javascript" src="js/facebook.js"></script>
+		<link type="text/css" rel="stylesheet"  href="styles/style.css"></link>
+	</head>
+	<body style="margin:auto;">
+		<div id="divWrapper">
+			<div id="header">
+				<div class="wrap loggedOut">
+					<div class="leftSide">
+						<a href="/" id="logo">foursquare</a>
+					</div>
+					<ul class="loggedOutMenu">
+						<li>
+        					<div id="divUserName"></div>
+    						<div id="fbButton"></div>
+						</li>
+						<li>
+							<div id="fbLike"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="container" class="wrap mainContent" style="height:auto!important;">
+				<div class="mainColumn" id="#mainColumn">
+					<div class="leftColumn">
+						<div id="venueData" style="height:180px;">
+		        	        <div id="venueIcon">
+				           		<img src="/images/categories/food-icon.png">
+								<div id="venueCategories">
+		            				<p>
+		            					<span>Mall</span>
+		        					</p>
+		            			</div>
+				        	</div>
+			        		<div class="vcard" id="venueDetails">
+		            			<h1 class="fn">Phoenix Market City</h1>
+								<div id="venueContact">
+			          				<div class="adr">
+			          					<span class="street-address">Survey No.-207, Behind Baker Gauges (I) Pvt. Ltd., Next to Tyco Electronics,(Nagar Road)</span>,
+			          					<span class="locality">Pune</span>, 
+			          					<span class="region" itemprop="addressRegion">Maharashtra</span> 
+			          					<span class="postal-code" itemprop="postalCode">411014</span>, 
+			          					<span class="country">India</span>
+		          					</div>
+			            			<p id="venueContactData" style="margin-top: 11px;font-size: 13px;font-weight: bold;">
+			              				<span>+91 20 6689 0085</span>
+			          				</p>
+			          				<p>
+								    	<div id="fbHotelLike" class="fb-like" style="margin-top:20px;" data-href="http://appacitive.com" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+								    </p>
+			            		</div>
+		          			</div>
+		      			</div>
+				    </div>
+					<div class="rightColumn">
+						<center>
+							<a href="http://maps.google.com?q=19.0571,72.8465" id="lnkMapImage"  target="blank">
+						    	<img src="http://maps.googleapis.com/maps/api/staticmap?zoom=14&amp;size=250x140&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:blue%7Clabel:S%7C19.0571,72.8465" width="250" style="border:2px solid rgb(81, 133, 190);" height="140" alt="map img">
+					    	</a>  
+					        <p style="margin-top:8px;">Distance from your location : <strong id="elDistance">3.9km</strong> </p>
+				        </center>
+					</div>
+				</div>
+				<div style="height: 50px;width: 100%;padding-bottom: 15px;">
+					<div class="right_col">     
+						<div class="on" id="liDescription">Description</div>     
+						<div id="liPhotos" class="">Photo gallery</div>
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+				<div id="divDescription">
+					<div>
+						<p>&nbsp; </p>
+				        <input name="btnAddComment" id="btnAddComment" type="button" class="add_comment" />
+				        <p>&nbsp; </p>
+				        <div style="clear:both;"></div>
+				        <div class="comment_box left hidden" id="divAddComment" style="width: 530px;"></div>
+				    </div>
+			    	<div class="bottom_border top5m" style="clear:both;"></div>
+				    <div class="pad10 bottom_border">
+				        <p>
+				            <span>
+				            	<strong>Verified Reviews:</strong>
+				            </span>
+			                All guest reviews are verified as submitted by our customers and reflect their experience at Phoenix Market City
+				        </p>
+			        </div>
+			        <div id="divReviews"></div>
+			    </div>
+				<div id="photosPage" class="hidden">
+				    <div id="venuePhotos">
+				        <div class="photo">
+				            <a href="https://irs2.4sqi.net/img/general/300x300/138616_DhU9O134Lg20DGMGdJTedD75syX1PwEi04NEfp-uapI.jpg" target="blank">
+				                <img src="https://irs2.4sqi.net/img/general/300x300/138616_DhU9O134Lg20DGMGdJTedD75syX1PwEi04NEfp-uapI.jpg">
+				            </a>
+				        </div>
+				        <div class="photo">
+				            <a href="https://irs0.4sqi.net/img/general/300x300/CMR4CTGTCYY2TJHEYLUFWQXRTZROMTDZHFZHNIW1PA0BQ4IC.jpg" target="blank">
+				                <img src="https://irs0.4sqi.net/img/general/300x300/CMR4CTGTCYY2TJHEYLUFWQXRTZROMTDZHFZHNIW1PA0BQ4IC.jpg">
+				            </a>
+				        </div>
+						<div class="photo">
+				            <a href="https://irs0.4sqi.net/img/general/300x300/CMR4CTGTCYY2TJHEYLUFWQXRTZROMTDZHFZHNIW1PA0BQ4IC.jpg" target="blank">
+				                <img src="https://irs0.4sqi.net/img/general/300x300/CMR4CTGTCYY2TJHEYLUFWQXRTZROMTDZHFZHNIW1PA0BQ4IC.jpg">
+				            </a>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<script type="text/template" id="mainColumnTemplate">
+			<div class="leftColumn">
+				<div id="venueData" style="height:180px;">
+        	        <div id="venueIcon">
+		           		<img src="/images/categories/{{category}}-icon.png">
+						<div id="venueCategories">
+            				<p>
+            					<span>{{category}}</span>
+        					</p>
+            			</div>
+		        	</div>
+	        		<div class="vcard" id="venueDetails">
+            			<h1 class="fn">{{name}}</h1>
+						<div id="venueContact">
+	          				<divclass="adr">
+	          					<span class="street-address">{{address}}</span>,
+	          					<span class="locality">{{city}}</span>, 
+	          					<span class="region">{{state}}</span>,
+	          					<span class="country">{{country}}</span>
+          					</div>
+	            		</div>
+            			<p id="venueContactData" style="margin-top: 11px;font-size: 13px;font-weight: bold;">
+              				<span>{{contact}}</span>
+          				</p>
+          				<p>
+					    	<div id="fbHotelLike" class="fb-like" style="margin-top:20px;" data-href="{{httpLocation}}" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					    </p>
+          			</div>
+      			</div>
+		    </div>
+			<div class="rightColumn">
+				<center>    
+					<a href="http://maps.google.com?q={{location}}" target="blank" id="lnkMapImage">
+				    	<img src="http://maps.googleapis.com/maps/api/staticmap?zoom=14&amp;size=250x140&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:blue%7Clabel:S%7C{{location}}" width="250" height="140" style="border:2px solid rgb(81, 133, 190);" alt="map img">
+			    	</a> 
+			        <p style="margin-top:8px;">Distance from your location : <strong id="elDistance">{{distance}}km</strong></p>
+		        </center>
+			</div>
+			<div style="height: 50px;width: 100%;padding-bottom: 15px;">
+				<div class="right_col">     
+					<div class="on" id="liDescription">Description</div>     
+					<div id="liPhotos" class="">Photo gallery</div>
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div id="divDescription">
+				<div>
+					<p>&nbsp; </p>
+			        <input name="btnAddComment" id="btnAddComment" type="button" class="add_comment" />
+			        <p>&nbsp; </p>
+			        <div style="clear:both;"></div>
+			        <div class="comment_box left hidden" id="divAddComment" style="width: 530px;"></div>
+			    </div>
+		    	<div class="bottom_border top5m" style="clear:both;"></div>
+			    <div class="pad10 bottom_border">
+			        <p>
+			            <span>
+			            	<strong>Verified Reviews:</strong>
+			            </span>
+		                All guest reviews are verified as submitted by our customers and reflect their experience at {{name}}
+			        </p>
+		        </div>
+		        <div id="divReviews"></div>
+		    </div>
+			<div id="photosPage" class="hidden">
+			    <div id="venuePhotos">
+			    	{{#images}}
+			        <div class="photo">
+			            <a href="{{.}}" target="blank">
+			                <img src="{{.}}">
+			            </span>
+			        </div>
+			        {{/images}}
+			        {{^image}}
+			        	<div><h4>No photos</h4></div>
+			        {{/images}}
+			    </div>
+			</div>
+		</script>
+		<script type="text/template" id="txtCommentFormTemplate">
+		    <div class="left width150 rgtalgn right5m"> Subject</div>
+			<div class="left width350">
+			    <input name="txtSubject" id="txtSubject" class="textfld" type="text" />
+			    <span id="lblSubjectError" class="hidden red right">Enter a subject</span>
+			</div>
+			<p>&nbsp;</p>
+			<div class="left width150 top5m rgtalgn right5m">Your message</div>
+			<div class="left width350">
+			    <span id="lblMessageError" class="hidden red right">Enter a message</span>
+			</div>
+			<div class="left width150 top5m rgtalgn right5m"> Rate your review (optional)
+			</div>
+			<div class="left width350" style="margin-top: 10px;">
+			    <input type="radio" name="reviewStar" class="star" value="1" />
+			    <input type="radio" name="reviewStar" class="star" value="2" />
+			    <input type="radio" name="reviewStar" class="star" value="3" />
+			    <input type="radio" name="reviewStar" class="star" value="4" />
+			    <input type="radio" name="reviewStar" class="star" value="5" />
+			</div>
+			<div class="right width350 top5m">
+			    <div class="left width150 top5m rgtalgn right5m"> &nbsp;</div>
+			    <div class="left width350 top5m hidden"> Enter the text as it is shown in the box below</div>
+			    <div class="left width150 top5m right5m">&nbsp;</div>
+			    <div class="left width350 top5m">
+			        <div id="divRecaptcha">
+			        </div>
+			    </div>
+			    <div class="clear">
+			    </div>
+			    <div class="left width150 top5m right5m">&nbsp;</div>
+			    <div class="left width350 top5m">
+			        <span id="lblNoFacebook" class="red hidden">You need to log into Facebook to add comments</span><br />
+			        <input type="button" name="button" class="button right5m" id="btnSubmitReview" value="Submit" />
+			        <a href="javascript:void(0)" id="btnCancelReview">Cancel</a> 
+			        <span class="red hidden" id="lblCaptchaError">Incorrect verification code, please try again.</span>
+			    </div>
+			</div>
+			<div class="clear">
+			</div>
+		</script>
+		<script type="text/template" id="txtReviewsTemplate">
+			 <div class="pad10" style="border-bottom: 1px solid #E5E5E5;">
+	        <div class="left">
+	        <p>
+	            <strong>From <span>{$T.from}</span></strong></p>
+	        <h5>
+	            "{$T.subject}"</h5>
+	        <p>
+	            <div style="overflow:hidden; width:{getStarWidth($T.starRating)}px;">
+	                <img src="/styles/images/example_star.png" width="69" height="12" style="vertical-align: middle" class="right5m">
+	            </div>Reviewed 
+	        </p>
+
+	        </div>
+	        <div class="right center" id="divReviewSection">
+	            <p>
+	                Was this review helpful?</p>
+	            <div class="like_wrp {{^canVote}}hidden{{canVote}}">
+	                <div class="upthunmb left right5m">
+	                </div>
+	                <div class="left">
+	                    <a href="javascript:void(0)" id="lnkVoteUp" data-commentId="{$T.id}" data-votes="{$T.upvotes}">Yes</a>
+	                </div>
+	                <div class="clear">
+	                </div>
+	            </div>
+	            <div class="clear">
+	            </div>
+	            <p>{$T.upvotes} {peopleOrPerson($T.upvotes)} found this review helpful</p>
+	        </div>
+	        <div class="right center hidden" id="divReviewLoading">
+	            <img src="/styles/images/smallLoader.gif" />
+	            Registering vote...
+	        </div>
+	        <div class="clear"></div>
+	        <div class="right hidden red" id="divVoteError"></div>
+	        <p class="top5m">{{Description}}</p>
+	        </div>
+		</script>
+	</body>
+</html>

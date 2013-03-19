@@ -54,31 +54,11 @@ var Facebook = {
 
 			FB.Event.subscribe('auth.logout', function(logoutResponse){
         		console.log("user  logged out");
+                Appacitive.facebook.accessToken="";
                 //Whereigo.controllers.loginController.logout();
             })
 
         };
-    },
-    loginWithFacebook: function (onSuccess, onCancel) {
-        var login = function () {
-            FB.login(function (response) {
-                if (response.authResponse) {
-                    onSuccess(response.authResponse);
-                } else {
-                    onCancel();
-                }
-            });
-        };
-
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
-                onSuccess(response.authResponse);
-            } else if (response.status === 'not_authorized') {
-                login();
-            } else {
-                login();
-            }
-        }, true);
     },
     checkLogin:function(onSuccess){
 		FB.getLoginStatus(function (response) {

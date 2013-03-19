@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
 var GoogleMap = {
     PagingInfo: {
         pageNumber: 1,
-        pageSize: 50,
+        pageSize: 200,
         fetchedCount: 0,
         totalRecords: 0,
         fetchedPages: []
@@ -123,10 +123,10 @@ var GoogleMap = {
         
         function fetchLocations(lat, lng) {
 
-            var property = "(*GeoCodes within_circle {0},{1},10 km)".format(lat, lng);
+            var property = "(*location within_circle {0},{1},10 km)".format(lat, lng);
             var locations = new Appacitive.ArticleCollection({ schema: 'location' });
             locations.setFilter(property);
-            locations.getQuery().extendOptions({ pnum: GoogleMap.PagingInfo.pageNumber ,psize :GoogleMap.PagingInfo.pageSize});
+            locations.getQuery().extendOptions({ pageNumber: GoogleMap.PagingInfo.pageNumber ,pageSize :GoogleMap.PagingInfo.pageSize});
             
             var that=this;
 
@@ -152,8 +152,8 @@ var GoogleMap = {
                 GoogleMap.plotCategories();
                 $("#divProgress").hide();
 
-                window.history.pushState({lArticles:historyLoc,place:$('#txtSearch').val()} ,'whereigo' , '/explore.html?location=' +escape($('#txtSearch').val()));
-                
+                window.history.pushState({lArticles:historyLoc,place:$('#txtSearch').val()} ,'whereigo' , '/explore.html?location=' +$('#txtSearch').val());
+
                 /* if (GoogleMap.PagingInfo.fetchedCount > GoogleMap.PagingInfo.totalRecords) {
                     return;
                 } */
@@ -172,7 +172,7 @@ var GoogleMap = {
         }
     },
     plotLocationMarker: function (location, filters) {
-        var geoCodes = this.getLocationProperty(location, "geocodes");
+        var geoCodes = this.getLocationProperty(location, "location");
         var category = this.getLocationProperty(location, "category");
         if (category == "")
             return;
@@ -328,15 +328,15 @@ Appacitive.eventManager.subscribe('showMap',function(){
 
 
 function getPlaces() {
-if (window.location.href.indexOf("?location=") == -1) {
-    if(GeoLocator.isUserLocationAvailable) {
-        GeoLocator.resolveGeocodeToAddress(GeoLocator.latitude,GeoLocator.longitude,function(addr){
-            $('#txtSearch').val(addr);
-        });
-    } else{
-        $('#txtSearch').val("Pune,Maharashtra,India"); 
+    if (window.location.href.indexOf("?location=") == -1) {
+        if(GeoLocator.isUserLocationAvailable) {
+            GeoLocator.resolveGeocodeToAddress(GeoLocator.latitude,GeoLocator.longitude,function(addr){
+                $('#txtSearch').val(addr);
+            });
+        } else{
+            $('#txtSearch').val("Pune,Maharashtra,India"); 
+        }
     }
-}
     var places = [{name:"Food",value:"food"},
                   {name:"Coffee",value:"coffee" },
                   {name:"Outdoors",value:"outdoors" },
@@ -426,22 +426,26 @@ google.maps.Map.prototype.addMarker = function (marker,location,scope) {
                 return;
             }
         }
+        location.street=(location.street) ? location.street :"";
+        location.city=(location.city) ? location.city :"";
+        location.state=(location.state) ? location.state :"";
+        location.country=(location.country) ? location.country :"";
+        location.rating=(location.avgrating && location.avgrating.all && location.avgrating.all!="") ? location.avgrating.all.toPrecision(1):"NA"
         var loc = {
                 name:location.name,
                 address:location.address,
-                street:'',
-                cityState:location.description,
+                street:(location.street) ? location.street : "",
+                cityState: location.city +"," +location.state +"," +location.country,
                 id:location.__id,
-                rating:'NA',
+                rating:location.rating,
                 photo:"/images/categories/" +location.category.toLowerCase() +'-icon.png',
                 ratingClass:function() {
-                    if(this.rating >= 7)
+                    if(this.rating >= 3.5)
                         return 'positive';
-                    else if((this.rating < 7 && this.rating >= 5 ) || this.rating=='NA')
+                    else if((this.rating < 3.5 && this.rating >= 2 ) || this.rating=='NA')
                         return 'neutral';
                     else
                         return 'negative';
-
                }
         };
         var el = $(Mustache.render($('#infoWindowTemplate').html(),loc))[0];
@@ -491,3 +495,10 @@ google.maps.LatLng.prototype.distanceFrom = function (newLatLng) {
     // return the distance
     return distance;
 }
+
+$(function(){
+    navigator.geolocation.getCurrentPosition(function(pos){
+        GeoLocator.Geocode(pos.coords.latitude,pos.coords.longitude);
+        GeoLocator.isUserLocationAvailable=true;
+    });
+});
