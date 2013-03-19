@@ -1,4 +1,4 @@
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+body{
 margin: 0;
 padding: 0;
 border: 0;
@@ -428,14 +428,14 @@ cursor: default;
 #venueData #venueDetails #venueContact p {line-height: 18px;margin: 0;}
 #venueData #venueCategories {line-height: 15px;font-size: 14px;font-weight: bold;margin: 5px 10px;text-align: center;text-transform: uppercase;}
 
-#photosPage { min-height: 100px; overflow: hidden; width: 96%;padding: 10px 20px 20px 20px;}
+#photosPage { min-height: 100px; overflow: hidden; width: 96%; padding: 10px 20px 20px 20px;}
 #venuePhotos {
     clear: both;
 }
-#venuePhotos .photo { height: 300px; width: 31.5%; padding: 0 0 5px 5px; float: left;}
+#venuePhotos .photo { height: 300px; width: 31.5%; padding: 0 10px 5px 5px; float: left;}
 #venuePhotos .photo img { height: 100%; width: 100%;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
 
-div.right_col  {border-bottom: 5px solid rgb(81, 133, 190);margin: 10px 10px 0px 25px;display: block;overflow: hidden;width: 96%;}
+div.right_col  {border-bottom: 5px solid rgb(81, 133, 190);margin: 10px 10px 0px 25px;display: block;overflow: hidden;width: 95%;}
 .right_col div{padding:7px; background:#eeeeee;   cursor:pointer; width: 100px;font-weight:bold;margin-bottom: 5px;  line-height: 18px;display: block;float: left;margin: 0px 15px 0px 0px;}
 .right_col div:hover{background: rgb(81, 133, 190);}
 .right_col div.on{background: rgb(81, 133, 190);}
@@ -458,7 +458,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85b2d3', end
 box-shadow: 2px 2px 2px #ccc; border:1px solid #488fc3; color:#fff; font-weight:bold; cursor:pointer; padding:3px;}
 .upthunmb{background:url(/styles/images/thumbs_icon.png) no-repeat; width:15px; height:16px; cursor:pointer;}
 .dwnthunmb{background:url(/styles/images/thumbs_icon.png) no-repeat -15px 0; width:15px; height:16px; cursor:pointer;}
-.like_wrp {width:50px; margin:0 auto;padding: 3px;background-color: whitesmoke;border-radius: 4px; }
+.like_wrp {width: 50px; margin: 0 0 0 10px;padding: 3px;background-color: whitesmoke;border-radius: 4px; }
 .like_wrp a { text-decoration: none; }
 .like_wrp:hover {background-color: lightgray;cursor: pointer;}
 #divDescription {min-height: 100px;overflow: hidden;width: 96%;margin-left: 5px;padding: 0px 20px 20px 20px;}
@@ -493,7 +493,6 @@ box-shadow: 2px 2px 2px #ccc; border:1px solid #488fc3; color:#fff; font-weight:
 .left_col01 p { line-height: 18px; }
 .left_col01 h3 { font-size: 13px; font-weight: bold; margin-top: 10px; }
 .left_col01 div.infobox { padding: 5px; border: 1px solid #d7d7d7; background: #f9f9f9; }
-.right_col { overflow: hidden; padding: 20px 0 0 0; margin: 0 20px 0 0; }
 .right_col ul { border-bottom: 5px solid #c3c3c3; }
 .right_col li { padding: 7px; background: #eeeeee; display: inline-block; cursor: pointer; font-weight: bold; }
 .right_col li:hover { background: #c3c3c3; }
@@ -508,4 +507,3 @@ box-shadow: 2px 2px 2px #ccc; border:1px solid #488fc3; color:#fff; font-weight:
 .WaitDisplay { background: white url("styles/images/blue-bar.gif") no-repeat 0 0; height: 19px; width: 220px; border: none; margin-top: 5px; }
 #divMessage { background: none repeat scroll 0 0 yellow; left: 45%; margin: -15px auto 0; padding: 7px; position: absolute; width: 280px; z-index: 100000; background: #F9EDBE; border-color: #F0C36D; z-index: 100000; font-weight: bold; border-radius: 5px; }
 .mrs { margin-right: 5px; }
-

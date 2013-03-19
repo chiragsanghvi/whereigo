@@ -96,7 +96,47 @@
 			                All guest reviews are verified as submitted by our customers and reflect their experience at Phoenix Market City
 				        </p>
 			        </div>
-			        <div id="divReviews"></div>
+			        <div id="divReviews">
+		        		<div>
+					    <div class="pad10" style="border-bottom: 1px solid #E5E5E5;">
+					        <div class="left">
+					            <p style="margin-bottom: 5px;">
+					                <strong><span style="color: rgb(81, 133, 190);">Chirag Sanghvi</span> <span style="color: rgb(190, 190, 190);">
+					                    12 Dec 2012</span></strong></p>
+					            <h5 style="">
+					                good place to hangoutgood place to hangoutgood place to hangoutgood place to hangout
+					                good place to hangoutgood place to hangout good place to hangoutgood place to hangout
+					                good place to hangoutgood place to hangoutgood place to hangoutgood place to hangout</h5>
+					            <p>
+					            </p>
+					            <div style="overflow: hidden; width: 70px; display: inline-block; float: left; margin-top: 5px;">
+					                <img src="/styles/Images/example_star.png" width="69" height="12" style="vertical-align: middle"
+					                    class="right5m">
+					            </div>
+					            <div style="width: 170px; display: inline-block; float: left;">
+					                <div class="like_wrp" style="float: left;">
+					                    <div class="upthunmb left right5m">
+					                    </div>
+					                    <div class="left">
+					                        <a href="javascript:void(0)" id="lnkVoteUp" data-commentid="20881695905546820" data-votes="1">
+					                            Like</a>
+					                    </div>
+					                </div>
+					                <div style="width: 100px; display: inline-block; margin-top: 3px; margin-left: 4px;">
+					                    10 likes</div>
+					            </div>
+					            <div class="right center hidden" id="divReviewLoading">
+					                <span style="background: url(styles/Images/smallLoader.gif) no-repeat; padding-left: 20px;">
+					                    Registering Vote</span>
+					            </div>
+					        </div>
+					        <div class="clear">
+					        </div>
+					        <div class="right hidden red" id="divVoteError">
+					        </div>
+					    </div>
+					</div>
+			        </div>
 			    </div>
 				<div id="photosPage" class="hidden">
 				    <div id="venuePhotos">
@@ -181,7 +221,8 @@
 		                All guest reviews are verified as submitted by our customers and reflect their experience at {{name}}
 			        </p>
 		        </div>
-		        <div id="divReviews"></div>
+		        <div id="divReviews">
+		        </div>
 		    </div>
 			<div id="photosPage" class="hidden">
 			    <div id="venuePhotos">
@@ -240,43 +281,46 @@
 			</div>
 		</script>
 		<script type="text/template" id="txtReviewsTemplate">
-			 <div class="pad10" style="border-bottom: 1px solid #E5E5E5;">
-	        <div class="left">
-	        <p>
-	            <strong>From <span>{$T.from}</span></strong></p>
-	        <h5>
-	            "{$T.subject}"</h5>
-	        <p>
-	            <div style="overflow:hidden; width:{getStarWidth($T.starRating)}px;">
-	                <img src="/styles/images/example_star.png" width="69" height="12" style="vertical-align: middle" class="right5m">
-	            </div>Reviewed 
-	        </p>
+			 <div>
+			    <div class="pad10" style="border-bottom: 1px solid #E5E5E5;">
+			        <div class="left">
+			            <p style="margin-bottom: 5px;">
+			                <strong><span style="color: rgb(81, 133, 190);">Chirag Sanghvi</span> 
+			                <span style="color: rgb(190, 190, 190);">12 Dec 2012</span></strong></p>
+			            <h5>
+			                good place to hangoutgood place to hangoutgood place to hangoutgood place to hangout
+			                good place to hangoutgood place to hangout good place to hangoutgood place to hangout
+			                good place to hangoutgood place to hangoutgood place to hangoutgood place to hangout</h5>
+			            <p>
+			            </p>
+			            <div style="overflow: hidden; width: 70px; display: inline-block; float: left; margin-top: 5px;">
+			                <img src="/styles/Images/example_star.png" width="69" height="12" style="vertical-align: middle"
+			                    class="right5m">
+			            </div>
+			            <div style="width: 170px; display: inline-block; float: left;">
+			                <div class="like_wrp" style="float: left;">
+			                    <div class="upthunmb left right5m">
+			                    </div>
+			                    <div class="left">
+			                        <a href="javascript:void(0)" id="lnkVoteUp" data-commentid="20881695905546820" data-votes="1">
+			                            Like</a>
+			                    </div>
+			                </div>
+			                <div style="width: 100px; display: inline-block; margin-top: 3px; margin-left: 4px;">
+			                    10 likes</div>
+			            </div>
+			            <div class="right center hidden" id="divReviewLoading">
+			                <span style="background: url(styles/Images/smallLoader.gif) no-repeat; padding-left: 20px;">
+			                    Registering Vote</span>
+			            </div>
+			        </div>
+			        <div class="clear">
+			        </div>
+			        <div class="right hidden red" id="divVoteError">
+			        </div>
+			    </div>
+			</div>
 
-	        </div>
-	        <div class="right center" id="divReviewSection">
-	            <p>
-	                Was this review helpful?</p>
-	            <div class="like_wrp {{^canVote}}hidden{{canVote}}">
-	                <div class="upthunmb left right5m">
-	                </div>
-	                <div class="left">
-	                    <a href="javascript:void(0)" id="lnkVoteUp" data-commentId="{$T.id}" data-votes="{$T.upvotes}">Yes</a>
-	                </div>
-	                <div class="clear">
-	                </div>
-	            </div>
-	            <div class="clear">
-	            </div>
-	            <p>{$T.upvotes} {peopleOrPerson($T.upvotes)} found this review helpful</p>
-	        </div>
-	        <div class="right center hidden" id="divReviewLoading">
-	            <img src="/styles/images/smallLoader.gif" />
-	            Registering vote...
-	        </div>
-	        <div class="clear"></div>
-	        <div class="right hidden red" id="divVoteError"></div>
-	        <p class="top5m">{{Description}}</p>
-	        </div>
 		</script>
 	</body>
 </html>
