@@ -6,7 +6,7 @@ if (!Whereigo.controllers) Whereigo.controllers = {};
 
 Whereigo.controllers.applicationController = new (function () {
     this.createSession = function () {
-        Appacitive.session.environment='sandbox';
+        Appacitive.session.environment='live';
         _setAPIBaseUrl();
         var _sessionOptions = { "apikey": Whereigo.config.apikey, app: 'sdk' }
         Appacitive.session.create(_sessionOptions);

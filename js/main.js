@@ -14,8 +14,8 @@ Whereigo.config = {};
 // default points to production
 Whereigo.config = new (function () {
     var _apiBaseUrl = window.currentEnvironment;
-    var _deployementName = "restaurantsearch2";
-    var _apikey="ASpQ6scJZUKShAEoAk1fOA==";
+    var _deployementName = "explore";
+    var _apikey="X6y2GWpri0agyXP55o+pEQ==";
 
     this.apiBaseUrl = _apiBaseUrl;
     this.deployment = _deployementName;
