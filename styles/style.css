@@ -502,7 +502,6 @@ box-shadow: 2px 2px 2px #ccc; border:1px solid #488fc3; color:#fff; font-weight:
 .medium_icon { margin: 0 0 15px 15px; padding: 3px; border: 1px solid #999; cursor: pointer; }
 .medium_icon:hover { margin: 0 0 15px 15px; padding: 3px; border: 1px solid #dd9145; cursor: pointer; }
 .phead { margin: 10px 0 0 15px; }
-#divUserName { height: 18px; color: #FFF; }
 .smalltext { color: #888888; font-size: 12px; }
 .red { color: Red !important; }
 
